@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMPEL - Under Maintenance</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #778873; /* Hijau sage */
+            color: #F1F3E0; /* Krem terang */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .maintenance-container {
+            max-width: 480px;
+            background-color: rgba(241, 243, 224, 0.05); /* Kotak transparan */
+            padding: 50px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(241, 243, 224, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            width: 110px;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: #e5e9d5;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* Desain Tombol Menuju Taplink */
+        .btn-redirect {
+            display: inline-block;
+            background-color: #F1F3E0; /* Krem */
+            color: #2b3a28; /* Hijau gelap */
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 35px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-redirect:hover {
+            background-color: #A1BC98; /* Hijau muda saat disorot */
+            color: #1f271d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Animasi Loading Spinner */
+        .loader {
+            border: 4px solid rgba(241, 243, 224, 0.2);
+            border-top: 4px solid #F1F3E0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 30px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .footer {
+            font-size: 0.85rem;
+            color: rgba(241, 243, 224, 0.7);
+            border-top: 1px dashed rgba(241, 243, 224, 0.2);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="maintenance-container">
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczPd7LWy1BPR0cUC-c8C6MSnB7R9prOS21RAXYcozrSul1GhhdJlpNITTo8_jY5wjGz-6iu7QZ3umKkUKT-GknLKRJb3nciEgx22N697Hza9mFgk0vNtfoomNeZop0jkpaGOQm2sroXGR872R-GIRDm6=w500-h500-s-no-gm?authuser=0" alt="Logo Balangan" class="logo">
+        
+        <h1>UNDER MAINTENANCE</h1>
+        
+        <p>Portal <strong>SIMPEL</strong> BKPSDM Balangan dengan domain <strong>"https://simpelblg.id" </strong> ini sedang dalam tahap pengembangan dan penyempurnaan.<br><br>Untuk sementara waktu, silakan akses layanan kami melalui portal yang sedang aktif di bawah ini:</p>
+        
+        <a href="https://simpelblg.taplink.id" class="btn-redirect">Kunjungi Portal Aktif</a>
+
+        <div class="loader"></div>
+        
+        <div class="footer">
+            © 2026 - BKPSDM Balangan
+        </div>
+    </div>
+
+</body>
+</html>
