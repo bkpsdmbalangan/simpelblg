@@ -1,0 +1,229 @@
+/* Import Font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* Pengaturan Dasar */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Menggunakan font modern Poppins */
+}
+
+body {
+    /* Background hijau sesuai permintaan */
+    background-color: #778873; 
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Container utama transparan */
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: transparent;
+    box-shadow: none; 
+    min-height: 100vh;
+    padding: 40px 20px 20px 20px;
+    display: flex;
+    flex-direction: column; 
+    margin: 0 auto; 
+}
+
+/* Profil / Header */
+.profile-section {
+    text-align: center;
+    margin-bottom: 30px; /* Jarak antara garis dengan tombol pertama */
+    padding-bottom: 30px; /* Jarak antara teks subjudul dengan garis */
+    border-bottom: 1px solid rgba(241, 243, 224, 0.2); /* Garis halus senada dengan footer */
+}
+
+.profile-pic {
+    width: 110px;
+    height: auto; 
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3)); 
+}
+
+.header-title {
+    font-size: 1.9rem;
+    color: #F1F3E0; /* Teks krem senada dengan tombol */
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 5px; 
+    text-transform: uppercase; 
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+}
+
+.header-subtitle {
+    font-size: 1.1rem;
+    color: #e5e9d5; /* Krem sedikit redup */
+    line-height: 1.5;
+    padding: 0 15px;
+    font-weight: 400;
+}
+
+/* Area Menu Utama */
+main {
+    flex-grow: 1; 
+}
+
+/* Transisi Halaman (SPA) */
+.page {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Desain Tombol Menu */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.link-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 18px 22px;
+    background-color: #F1F3E0; /* Warna tombol default */
+    text-decoration: none;
+    border-radius: 14px;
+    border: none; /* Border dihapus agar lebih minimalis */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.link-btn:hover {
+    background-color: #D2DCB6; /* Warna tombol saat disorot */
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Teks dalam Tombol */
+.btn-text-area {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 2px;
+}
+
+.btn-title {
+    font-size: 1.1rem;
+    color: #2b3a28; /* Hijau sangat gelap agar kontras dengan warna krem */
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.btn-subtitle {
+    font-size: 0.85rem;
+    color: #4a5d46; /* Hijau gelap medium */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Teks tombol ikut sedikit menggelap saat di-hover agar terbaca di warna hijau terang */
+.link-btn:hover .btn-title,
+.link-btn:hover .btn-subtitle {
+    color: #1f271d; 
+}
+
+/* Ikon Panah di Kanan */
+.btn-icon {
+    color: #778873; /* Ikon senada dengan background utama */
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.link-btn:hover .btn-icon {
+    color: #2b3a28;
+}
+
+/* Halaman Internal */
+.btn-back {
+    background: none;
+    border: none;
+    color: #F1F3E0; 
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.2s;
+}
+
+.btn-back:hover {
+    opacity: 0.8;
+}
+
+.internal-title {
+    font-size: 1.3rem;
+    color: #F1F3E0;
+    margin-bottom: 25px;
+    text-align: center;
+    padding-bottom: 18px;
+    border-bottom: 2px dashed rgba(241, 243, 224, 0.3);
+}
+
+/* Footer */
+.app-footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(241, 243, 224, 0.7); 
+    padding-top: 20px;
+    border-top: 1px solid rgba(241, 243, 224, 0.2);
+}
+
+/* --- TAMBAHAN UNTUK TEKS SAMBUTAN & TOMBOL MENU --- */
+
+.welcome-text {
+    color: #e5e9d5; /* Krem redup agar tidak bertabrakan dengan judul */
+    font-size: 0.9rem;
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Desain Tombol Menu Utama */
+.btn-toggle {
+    width: 100%;
+    padding: 16px 20px;
+    background-color: #2b3a28; /* Hijau sangat gelap agar beda dengan tombol layanan */
+    color: #F1F3E0; /* Teks krem */
+    border: none;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-toggle:hover {
+    background-color: #1f271d; /* Lebih gelap saat disorot */
+    transform: translateY(-2px);
+}
+
+/* Class pembantu untuk menyembunyikan elemen */
+.hidden-menu {
+    display: none !important;
+}
