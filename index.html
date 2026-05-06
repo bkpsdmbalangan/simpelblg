@@ -3,115 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMPEL</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-
+    <title>Mengalihkan ke Portal SIMPEL...</title>
     <style>
-        * {
+        /* Mengatur reset dasar agar layar penuh */
+        body, html {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            height: 100%;
+            font-family: sans-serif;
+            background-color: #f8fafc; /* Warna latar belakang cadangan */
         }
 
-        body {
-            background-color: #778873; /* Hijau sage */
-            color: #F1F3E0; /* Krem terang */
-            display: flex;
-            justify-content: center;
+        /* --- LOADING OVERLAY --- */
+        .loading-overlay {
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
+            background: rgba(30, 41, 59, 0.85); /* Latar gelap transparan (Navy Blue) */
+            backdrop-filter: blur(8px); /* Efek kaca buram */
+            z-index: 9999;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            padding: 20px;
+            color: white;
+            transition: opacity 0.5s ease-in-out; /* Transisi memudar yang halus */
         }
 
-        .maintenance-container {
-            max-width: 480px;
-            background-color: rgba(241, 243, 224, 0.05); /* Kotak transparan */
-            padding: 50px 30px;
-            border-radius: 20px;
-            border: 1px solid rgba(241, 243, 224, 0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            width: 110px;
-            height: auto;
-            margin-bottom: 25px;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
-        }
-
-        h1 {
-            font-size: 1.6rem;
-            font-weight: 800;
+        .loading-logo {
+            width: 90px; /* Ukuran logo */
+            height: auto; 
             margin-bottom: 15px;
-            letter-spacing: 3px;
+            animation: pulse 1.5s infinite ease-in-out; /* Mengaktifkan animasi berdenyut */
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Efek glow halus */
+        }
+
+        .loading-text {
+            font-weight: 600; 
+            color: white; 
+            letter-spacing: 2px; 
+            font-size: 0.9rem;
             text-transform: uppercase;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        p {
-            font-size: 0.95rem;
-            color: #e5e9d5;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* Desain Tombol Menuju Taplink */
-        .btn-redirect {
-            display: inline-block;
-            background-color: #F1F3E0; /* Krem */
-            color: #2b3a28; /* Hijau gelap */
-            text-decoration: none;
-            padding: 14px 28px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 35px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
-        .btn-redirect:hover {
-            background-color: #A1BC98; /* Hijau muda saat disorot */
-            color: #1f271d;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .footer {
-            font-size: 0.85rem;
-            color: rgba(241, 243, 224, 0.7);
-            border-top: 1px dashed rgba(241, 243, 224, 0.2);
-            padding-top: 20px;
+        /* --- KEYFRAMES ANIMASI PULSE --- */
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.8; }
         }
     </style>
 </head>
 <body>
 
-    <div class="maintenance-container">
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczPd7LWy1BPR0cUC-c8C6MSnB7R9prOS21RAXYcozrSul1GhhdJlpNITTo8_jY5wjGz-6iu7QZ3umKkUKT-GknLKRJb3nciEgx22N697Hza9mFgk0vNtfoomNeZop0jkpaGOQm2sroXGR872R-GIRDm6=w500-h500-s-no-gm?authuser=0" alt="Logo Balangan" class="logo">
-        
-        <h1>SIMPEL</h1>
-        
-        <p>Portal Sistem Informasi dan Manajemen Pelayanan Elektronik BKPSDM Balangan dialihkan ke alamat baru:</p>
-        
-        <a href="https://portal.simpelblg.id" class="btn-redirect">Kunjungi</a>
-        
-        <div class="footer">
-            © 2026 - BKPSDM Balangan
-        </div>
+    <!-- Area Loading -->
+    <div id="loading" class="loading-overlay">
+        <!-- Menggunakan link gambar logo yang sama dari kodemu sebelumnya -->
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczM_UPrepfWkWp7jie4Km8sQ31_CG_kAWBdf0n1pqo_DxxM_rdZrJuI88Bl3rS36MIAwqtcBFcJbv2P2Rqrvy59MbD_OkSroCvOZJv9EXIgwgU5JNYSOKU7E05N0UP_SiBF_yfYLKj1RmFyfE-BGJV9N=w500-h500-s-no-gm?authuser=0" alt="Logo Balangan" class="loading-logo">
+        <div class="loading-text">Memuat Portal SIMPEL ...</div>
     </div>
 
+    <!-- Script untuk efek transisi dan redirect otomatis -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Atur lama loading muncul (dalam milidetik). 3000 = 3 Detik
+            const waktuLoading = 3000; 
+
+            setTimeout(function() {
+                // 1. Berikan efek memudar (fade out) pada overlay loading
+                const loadingElement = document.getElementById('loading');
+                loadingElement.style.opacity = '0';
+                
+                // 2. Tunggu sebentar hingga efek memudar selesai (500ms), lalu alihkan halaman
+                setTimeout(function() {
+                    window.location.href = "https://portal.simpelblg.id";
+                }, 500);
+
+            }, waktuLoading);
+        });
+    </script>
 </body>
 </html>
