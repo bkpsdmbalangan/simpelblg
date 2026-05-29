@@ -14,8 +14,9 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: sans-serif;
-            background-color: #f8fafc; /* Warna latar belakang cadangan */
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #1e293b; /* Warna dasar menyatu dengan overlay */
+            overflow: hidden; /* Mencegah scroll */
         }
 
         /* --- LOADING OVERLAY --- */
@@ -25,65 +26,70 @@
             left: 0; 
             width: 100%; 
             height: 100%;
-            background: rgba(30, 41, 59, 0.85); /* Latar gelap transparan (Navy Blue) */
-            backdrop-filter: blur(8px); /* Efek kaca buram */
-            z-index: 9999;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); /* Gradien halus Navy Blue */
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center;
             color: white;
-            transition: opacity 0.5s ease-in-out; /* Transisi memudar yang halus */
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* Transisi memudar yang lebih natural */
+            z-index: 9999;
         }
 
-        .loading-logo {
-            width: 90px; /* Ukuran logo */
-            height: auto; 
-            margin-bottom: 15px;
-            animation: pulse 1.5s infinite ease-in-out; /* Mengaktifkan animasi berdenyut */
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3)); /* Efek glow halus */
+        /* --- PURE CSS SPINNER --- */
+        .css-spinner {
+            width: 48px;
+            height: 48px;
+            border: 3px solid rgba(255, 255, 255, 0.15); /* Cincin dasar yang tipis dan transparan */
+            border-top-color: #ffffff; /* Warna utama putaran */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 24px;
         }
 
+        /* --- TEKS LOADING --- */
         .loading-text {
-            font-weight: 600; 
-            color: white; 
-            letter-spacing: 2px; 
-            font-size: 0.9rem;
+            font-weight: 500; 
+            color: #f8fafc; 
+            letter-spacing: 3px; 
+            font-size: 0.95rem;
             text-transform: uppercase;
+            animation: pulse-text 2s infinite ease-in-out;
         }
 
-        /* --- KEYFRAMES ANIMASI PULSE --- */
-        @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.8; }
+        /* --- KEYFRAMES ANIMASI --- */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-text {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Area Loading -->
     <div id="loading" class="loading-overlay">
-        <!-- Menggunakan link gambar logo yang sama dari kodemu sebelumnya -->
-        <img src="https://lh3.googleusercontent.com/pw/AP1GczM_UPrepfWkWp7jie4Km8sQ31_CG_kAWBdf0n1pqo_DxxM_rdZrJuI88Bl3rS36MIAwqtcBFcJbv2P2Rqrvy59MbD_OkSroCvOZJv9EXIgwgU5JNYSOKU7E05N0UP_SiBF_yfYLKj1RmFyfE-BGJV9N=w500-h500-s-no-gm?authuser=0" alt="Logo Balangan" class="loading-logo">
-        <div class="loading-text">Memuat Portal SIMPEL ...</div>
+        <div class="css-spinner"></div>
+        <div class="loading-text">Memuat Portal SIMPEL</div>
     </div>
 
-    <!-- Script untuk efek transisi dan redirect otomatis -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Atur lama loading muncul (dalam milidetik). 3000 = 3 Detik
+            // Waktu loading (dalam milidetik). 3000 = 3 Detik
             const waktuLoading = 3000; 
 
             setTimeout(function() {
-                // 1. Berikan efek memudar (fade out) pada overlay loading
+                // 1. Berikan efek memudar (fade out)
                 const loadingElement = document.getElementById('loading');
                 loadingElement.style.opacity = '0';
                 
-                // 2. Tunggu sebentar hingga efek memudar selesai (500ms), lalu alihkan halaman
+                // 2. Tunggu transisi memudar selesai (600ms), lalu alihkan halaman
                 setTimeout(function() {
                     window.location.href = "https://portal.simpelblg.id";
-                }, 500);
+                }, 600);
 
             }, waktuLoading);
         });
